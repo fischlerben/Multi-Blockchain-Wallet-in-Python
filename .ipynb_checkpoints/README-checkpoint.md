@@ -56,7 +56,7 @@ Per the instructions, I then funded a BTCTEST address using a testnet faucet (ht
 ![new_fund](/Screenshots/new_fund.png?raw=true)
 
 3. Add the following middleware to support the PoA algorithm:
-from web3.middleware import geth_poa_middleware
+from web3.middleware import geth_poa_middleware  
 w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 
 Due to a bug in web3.py, you will need to send a transaction or two with MyCrypto first, since the
@@ -65,9 +65,11 @@ or one of the node keystore files.
 
 4. Send a transaction from the pre-funded address within the wallet to another (I did mine within MyCrypto), then copy the txid into MyCrypto's TX Status, and screenshot the successful transaction:
 
-    eth_sender_account = priv_key_to_account(ETH,coins["eth"][0]['privkey'])
-    eth_recipient_address = coins["eth"][1]["address"]
-    send_tx(ETH, eth_sender_account, eth_recipient_address, 2)
+```
+eth_sender_account = priv_key_to_account(ETH,coins["eth"][0]['privkey'])
+eth_recipient_address = coins["eth"][1]["address"]
+send_tx(ETH, eth_sender_account, eth_recipient_address, 2)
+```
 
 ![hash](/Screenshots/hash.png?raw=true)
 
